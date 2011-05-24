@@ -1,0 +1,50 @@
+<script type='text/javascript'>
+	$(document).ready(function (){
+
+    function carregar(local,url){
+       $(local).load(url);
+    }
+
+    $('#ajaxcontent').ajaxStart(function(){
+      $('#meusdocumentos').attr('disabled','disabled');
+      $(this).attr('class', 'load');
+    });
+    
+    $('#ajaxcontent').ajaxStop(function(){
+      $(this).attr('class', 'no-load');
+    });
+
+    $('#meusdados').click(function(e){
+      e.preventDefault();
+      carregar('#ajaxcontent','<?php echo $this->baseUrl;?>/meusdados');
+     
+    });
+
+    $('#boletim').click(function(e){
+      e.preventDefault();
+
+      carregar('#ajaxcontent','<?php echo $this->baseUrl;?>/boletim');
+
+    });
+
+     $('#meusdocumentos').click(function(e){
+      e.preventDefault();
+
+      carregar('#ajaxcontent','<?php echo $this->baseUrl;?>/meusdocumentos');
+
+    });
+     //Executa após carregar a pagina
+     carregar('#ajaxcontent','<?php echo $this->baseUrl;?>/index/ajax');
+  });
+</script>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="menuAluno">
+	<tr>
+		<td width="35%" align="center"><a href="#" id="boletim" ><img src="<?php  echo $this->placeholder('baseUrlPath')?>/templates/<?php  echo $this->placeholder('template-site')?>/imagens/boletim.png" width="128" height="128" alt="Boletim" /></a><br />Boletim</td>
+		<td width="35%" align="center"><a href="#" id="meusdocumentos"><img src="<?php  echo $this->placeholder('baseUrlPath')?>/templates/<?php  echo $this->placeholder('template-site')?>/imagens/documentos.png" width="128" height="128" alt="Documentos" /></a><br />Meus Documentos</td>
+		<td width="30%" align="center"><a  id="meusdados" href="#" ><img src="<?php  echo $this->placeholder('baseUrlPath')?>/templates/<?php  echo $this->placeholder('template-site')?>/imagens/conta.png" width="128" height="128" alt="Mesus Dados" /></a><br />Meus Dados</td>
+	</tr>
+</table>
+
+<div id="ajaxcontent">Escolha uma das opções acima.</div>

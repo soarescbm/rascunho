@@ -1,0 +1,39 @@
+<?php
+
+echo $this->doctype();
+?>
+
+<html>
+
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <?php  echo $this->headTitle()?>
+    <meta name="robots" content="noindex,nofollow"/>
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->baseUrl();?>/templates/<?php  echo $this->placeholder('template')?>/images/favicon.ico" />
+    <link href='<?php  echo $this->placeholder('baseUrlPath')?>/templates/system/css/system.css'  rel='stylesheet' type='text/css' />
+
+    </head>
+
+	<body>
+	       <div  id="conteiner">
+
+	             <div id="content">
+
+                       <div  class="titulo_alerta">
+                            <?php echo $this->message ?>
+                      </div>
+                     </div>
+
+
+		   </div>
+
+
+
+	</body>
+
+</html>
+
+
+
+
+

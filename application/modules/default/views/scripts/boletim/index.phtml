@@ -1,0 +1,25 @@
+<?php
+if(isset($_GET["anoLetivo"]) && !empty($_GET["anoLetivo"]))
+	$anoLetivo = $_GET["anoLetivo"];
+?>
+<h2>Boletim</h2>
+<div>
+		<div class="tabelaBoletim">
+			<fieldset style="margin-top: 10px;">
+				<legend><strong>Visualizando:</strong> <?php echo $anoLetivo; ?> - <a href="#" target="_blank">Gerar PDF</a> | <a href="#" target="_blank">Imprimir</a></legend>
+				<?php ;
+           echo $this->tabela;
+        ?>
+				
+			</fieldset>
+			<div style="margin-top:15px;"><strong>Outros anos:</strong>
+			<select name="outrosAnos" onchange="carregar('ajaxPage','boletim.php?anoLetivo='+this.value)">
+				<option selected="selected">Selecione...</option>
+				<option value="2011">2011</option>
+				<option value="2010">2010</option>
+				<option value="2009">2009</option>
+				<option value="2008">2008</option>
+			</select></div>
+		</div>
+
+	</div>

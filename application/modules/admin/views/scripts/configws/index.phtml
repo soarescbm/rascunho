@@ -1,0 +1,61 @@
+<script type='text/javascript'>
+	$(document).ready(function (){
+
+      $('.salvar').click(function(){
+
+        $('#form01').submit();
+
+      });
+
+       $('#status_ws').ajaxStart(function(){
+            $(this).attr('class', 'load');
+       });
+       $('#status_ws').ajaxStop(function(){
+           $(this).attr('class', 'no-load');
+        });
+       //Ajax
+       $.post('<?php echo $this->url;?>' + '/ajax', { status: null},
+                 function(data){
+                 $('#status_ws').html(data);
+                 },
+                'html');
+
+
+       
+       
+  });
+</script>
+<?php if (isset($this->mensagem)) { ?>
+
+<div id="confirma_op">
+    <?php echo $this->mensagem; ?>
+
+</div>
+
+<?php } ?>
+
+
+<?php echo $this->render('titulo.phtml'); ?>
+
+
+
+<div id="sys_conteudo">
+    <div class="sub_titulo"><?php echo $this->infoForm;?></div>
+    <div class="conteudo_form">
+        <div class ="status" >
+          <div style="float: left;  width: 140px;"><b>Status do Webservice:&ensp;  </b></div><span id="status_ws" style="display: inline-block; min-width: 100px"> </span>
+
+        </div>
+        <?php echo $this->form; ?>
+    </div>
+</div>
+<div id='conteiner_tool'>
+    <div id='tool'>
+            <ul>
+                <li><a class='salvar' href='#'>Salvar</a></li>
+                <li><a class='cancelar' href='<?php echo $this->url;?>'>Cancelar</a></li>
+            </ul>
+
+    </div>
+    
+</div>

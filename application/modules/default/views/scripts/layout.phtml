@@ -1,0 +1,56 @@
+<?php
+echo $this->doctype(); 
+?>
+<html>
+
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <?php  echo $this->headTitle()?>
+    <link rel="shortcut icon" type="image/x-icon" href="<?php  echo $this->placeholder('baseUrlPath')?>/templates/<?php  echo $this->placeholder('template-site')?>/images/favicon.ico" />
+    <link href='<?php  echo $this->placeholder('baseUrlPath')?>/templates/<?php  echo $this->placeholder('template-site')?>/css/css.css'  rel='stylesheet' type='text/css' />
+    <?php  echo $this->jQuery()->addStylesheet($this->placeholder('baseUrlPath').'/templates/'.$this->placeholder('template').'/css/blitzer/jquery-ui.css')
+             ->setLocalPath($this->placeholder('baseUrlPath').'/js/jquery/jquery-1.4.2.min.js')
+             ->setUiLocalPath($this->placeholder('baseUrlPath').'/js/jquery/jquery-ui-1.8.4.custom.min.js')
+             ->enable()
+             ->uiEnable(); ?>
+       
+    <script type="text/javascript" src="<?php  echo $this->placeholder('baseUrlPath')?>/js/jquery_mascaras/jquery.maskedinput-1.2.js"></script>
+    <script type="text/javascript" src="<?php  echo $this->placeholder('baseUrlPath')?>/js/menu/js/hoverIntent.js"></script>
+    <?php   echo $this->headScript();   ?>
+
+	</head>
+	
+<body>
+	     <div id='todo'>
+	     		<div id='topo'>
+             <?php
+             $helper = $this->userLogado();
+             if (!empty($helper)){?>
+
+             <div id="logoff"> <a href="<?php  echo $this->placeholder('baseUrl')?>/login/logoff"  ><span></span></a></div>
+             <div id="logado">
+                   <?php echo $helper; ?>
+             </div>
+             <?php } ?>
+			    </div>
+          <div id="corpo">
+              <div id="top_corpo"></div>
+              <div id="center_corpo">
+                <div id="content">
+                    <h1><?php echo $this->placeholder('title') ?></h1>
+                    <?php echo $this->layout()->content ?>
+                </div>
+						</div>
+              <div id="bottom_corpo"></div>
+          </div>
+	     
+	     </div>
+       <div id="copyright">
+            <?php  echo $this->placeholder('copyright')?>
+             <span> <br/>
+</span>
+      </div>
+    		
+		</body>
+
+</html>
