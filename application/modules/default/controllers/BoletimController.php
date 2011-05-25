@@ -47,12 +47,12 @@ class BoletimController extends P2s_Controller_Abstract {
     $tag = new P2s_Html_Tag();
     $dados = $boletim;
     $labels = array();
-    $atributos = array();
+    $atributos = array('align'=>'center');
     
     $modulos = range(1, $dados['modulos']);
 
     //Labels da tabela
-    $labels[] = array('data'=>'Disciplinas','attributes'=>$atributos);
+    $labels[] = array('data'=>'Disciplinas','attributes'=>array('width'=>'20%'));
     //falta por componente
     $atributos['colspan'] =  $dados['faltaporcomponente']? 2:1;
     foreach($modulos as  $modulo){
@@ -149,7 +149,7 @@ class BoletimController extends P2s_Controller_Abstract {
        $linhas .= $tag->getTag('tr', array(),$linha);
    }
 
-    $html = $tag->getTag('table', array(),$linhas);
+    $html = $tag->getTag('table', array('width'=>'100%', 'border'=>'0', 'cellspacing'=>'0', 'cellpadding'=>'0'),$linhas);
     
     return $html;
   }

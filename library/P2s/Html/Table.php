@@ -1,25 +1,6 @@
 <?php
-/**
- * Fgsl Framework
- *
- * LICENSE
- *
- * This source file is subject to the new BSD license that is bundled
- * with this package in the file LICENSE.txt. 
- * If you did not receive a copy of the license, you can get it at www.fgsl.eti.br. 
- *
- * @category   Fgsl
- * @package    Fgsl_Html
- * @subpackage Fgsl_Html_Table
- * @copyright  Copyright (c) 2009 Flávio Gomes da Silva Lisboa (http://www.fgsl.eti.br)
- * @license   New BSD License
- * @version    0.0.2
- */
 
-/**
- * Fgsl_Html_Table
- */
-require('Tag.php');
+
 class P2s_Html_Table
 {
 	protected $_tag;
@@ -28,11 +9,7 @@ class P2s_Html_Table
 	{
 		$this->_tag = new P2s_Html_Tag();
 	}
-	/**
-	 * Create a HTML table with data of an array
-	 * @param $data
-	 * @return unknown_type
-	 */
+	
 	public function create(array $data, array $properties = null)
 	{
 		if (empty($data)) return '';
@@ -52,7 +29,7 @@ class P2s_Html_Table
                          $line.= $this->_tag->getTag('th',$null,'&nbsp;');
 			break;		
 		}
-    $line.= $this->_tag->getTag('tr',array(),$line);
+    $line = $this->_tag->getTag('tr',array(),$line);
 		$html .= $line;
 
                 $n = 0;

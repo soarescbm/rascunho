@@ -1,6 +1,6 @@
 <h2>Meus Dados</h2>
 <fieldset>
-	<legend>Dados Básicos - <a href="#" target="_blank">Gerar PDF</a> | <a href="#" target="_blank">Imprimir</a></legend>
+	<legend>Dados Básicos</legend>
 	<table width="100%" border="0" cellspacing="0" cellpadding="3">
 		<tr>
 			<td width="12%" align="right"><strong>Nome:</strong></td>
@@ -11,8 +11,9 @@
 			<td><?php echo $this->convertUTF8($this->dados_aluno['reponsavel_aluno']); ?></td>
 		</tr>
 	</table>
-
-  <?php foreach ($this->dados_aluno['matriculas'] as $key => $matricula){ ?>
+ 
+</fieldset>
+ <?php foreach ($this->dados_aluno['matriculas'] as $key => $matricula){ ?>
 	<fieldset style="margin-top:10px;">
 
 		<legend>Matrícula - Ano  <?php echo $key; ?></legend>
@@ -40,4 +41,3 @@
 		</table>
 	</fieldset>
   <?php } ?>
-</fieldset>

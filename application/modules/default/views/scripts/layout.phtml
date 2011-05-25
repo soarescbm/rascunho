@@ -21,13 +21,14 @@ echo $this->doctype();
 	</head>
 	
 <body>
+       <div id="carregando">aguarde, carregando<img src="<?php  echo $this->placeholder('baseUrlPath')?>/templates/<?php  echo $this->placeholder('template-site')?>/imagens/carregando_reticencias.gif" width="12" height="16" alt="..." align="absmiddle" /></div>
 	     <div id='todo'>
 	     		<div id='topo'>
              <?php
              $helper = $this->userLogado();
              if (!empty($helper)){?>
 
-             <div id="logoff"> <a href="<?php  echo $this->placeholder('baseUrl')?>/login/logoff"  ><span></span></a></div>
+             <div id="logoff"> <a id="link_logoff" href="<?php  echo $this->placeholder('baseUrl')?>/login/logoff"  ><span>Sair</span></a></div>
              <div id="logado">
                    <?php echo $helper; ?>
              </div>
